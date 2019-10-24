@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng good - fast - cheap</title>
+    <link rel="stylesheet" href="good_fast_cheap.css">
+</head>
+<body>
+<div id="container">
+    <input type="checkbox" class="check good" onchange="changed(this)">
+    <label for="good">Good</label> <br>
+    <input type="checkbox" class="check fast" onchange="changed(this)">
+    <label for="fast">Fast</label> <br>
+    <input type="checkbox" class="check cheap" onchange="changed(this)">
+    <label for="cheap">Cheap</label> <br>
+</div>
+<script>
+    let good = document.querySelector('.good');
+    let fast = document.querySelector('.fast');
+    let cheap = document.querySelector('.cheap')
+
+    function changed(el) {
+        isGood = good.checked;
+        isFast = fast.checked;
+        isCheap = cheap.checked;
+
+        if (isGood && isFast && isCheap && el === cheap) {
+            fast.checked = false;
+        }
+        if (isGood && isCheap && isFast && el === fast) {
+            good.checked = false;
+        }
+        if (isCheap && isFast && isGood && el === good) {
+            cheap.checked = false;
+        }
+    }
+</script>
+</body>
+</html>
